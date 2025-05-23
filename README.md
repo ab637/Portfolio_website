@@ -19,7 +19,8 @@ Welcome to my personal portfolio! This site gives a clean, visual tour of who I 
 
  Get in Touch
 
-Questions, ideas, or feedback? Use the Contact section on the site to send me a message, or email me at your.email@example.com.
+Questions, ideas, or feedback? Use the Contact section on the site to send me a message, or email me at abhinavkuntal.pgdm26@greatlakes.edu.in
+
 
 ---
 

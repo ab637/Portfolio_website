@@ -82,12 +82,10 @@
     margin: auto;
   }
   .profile-img {
-   height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url('assets/profile.jpg') center/cover no-repeat;
-    text-align: center;
+    width: 220px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px var(--shadow);
+    border: 3px solid var(--gold);
   }
   .about-text p {
     margin-bottom: 1rem;

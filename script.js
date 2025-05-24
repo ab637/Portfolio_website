@@ -1,4 +1,4 @@
-// Smooth scroll on buttons
+// Smooth scroll on buttons    
 const buttons = document.querySelectorAll('[data-target]');
 buttons.forEach(btn =>
   btn.addEventListener('click', () =>
@@ -8,7 +8,7 @@ buttons.forEach(btn =>
   )
 ); 
 
-// Typed Intro Effect
+// Typed Intro Effect //WHY NOT WORKING ?
 const titles = ["Engineer", "Analyst", "Consultant"];
 let titleIndex  = 0,
     charIndex   = 0;

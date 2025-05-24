@@ -6,7 +6,7 @@ buttons.forEach(btn =>
       .querySelector(btn.dataset.target)
       .scrollIntoView({ behavior: 'smooth' })
   )
-);
+); 
 
 // Typed Intro Effect
 const titles = ["Engineer", "Analyst", "Consultant"];

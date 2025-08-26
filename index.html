@@ -4,100 +4,123 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abhinav Kuntal | Portfolio</title>
-   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-8VH0SCLQljjPjYSZfZc+WdB6mfbe/e3zHHlyGMhC+o+5IYTyWf/SZRr7UqP7NDfM" crossorigin="anonymous">
+  <!-- Bootstrap CSS (only CSS, no JS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Scroll Progress Bar -->
-<div id="progress-container">
-  <div id="progress-bar"></div>
-</div>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top"
-     style="background-color: var(--bg-color); padding: 0.5rem 1rem; z-index: 1000;">
-  <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
+  <!-- Navbar -->
+  <nav class="navbar fixed-top" style="background: #121212; padding: 0.5rem 1rem; width: 100%; display: flex; align-items: center; justify-content: space-between; z-index:1000;">
     
     <!-- Brand -->
     <a class="navbar-brand" href="https://www.linkedin.com/in/abhinav-kuntal-611432177/"
-       style="color: var(--gold); font-weight: bold; font-size: 1.25rem; text-decoration: none;">
+       style="color: gold; font-weight: bold; font-size: 1.25rem; text-decoration: none;">
       Abhinav Kuntal
     </a>
-    
-    <!-- Links -->
-    <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: flex-end;">
-      <ul class="navbar-nav" style="display: flex; gap: 2rem; margin: 0; padding: 0;">
-        <li class="nav-item"><a class="skill-item" href="#about" style="color: var(--text-color); text-decoration: none; padding: .5rem 0;">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects" style="color: var(--text-color); text-decoration: none; padding: .5rem 0;">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills" style="color: var(--text-color); text-decoration: none; padding: .5rem 0;">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#resume" style="color: var(--text-color); text-decoration: none; padding: .5rem 0;">Resume</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html" style="color: var(--text-color); text-decoration: none; padding: .5rem 0;">Contact</a></li>
+
+    <!-- Hamburger Icon (mobile only) -->
+    <button id="hamburger" style="font-size: 1.8rem; background: none; border: none; color: gold; cursor: pointer; display: none;">
+      ☰
+    </button>
+
+    <!-- Close Icon (mobile only) -->
+    <button id="closeIcon" style="font-size: 1.8rem; background: none; border: none; color: gold; cursor: pointer; display: none;">
+      ✖
+    </button>
+
+    <!-- Navbar Items -->
+    <div id="navItems" style="margin-left: auto;">
+      <ul id="navList" style="list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; align-items: center;">
+        <li><a href="#about" style="color: white; text-decoration: none;">About</a></li>
+        <li><a href="#projects" style="color: white; text-decoration: none;">Projects</a></li>
+        <li><a href="#skills" style="color: white; text-decoration: none;">Skills</a></li>
+        <li><a href="#resume" style="color: white; text-decoration: none;">Resume</a></li>
+        <li><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
+        <li>
+          <button id="theme-toggle" aria-label="Toggle Theme"
+                  style="background: none; border: none; font-size: 1.2rem; color: white; cursor: pointer;">
+            ☀
+          </button>
+        </li>
       </ul>
-
-      <!-- Theme Toggle Button -->
-      <button id="theme-toggle" aria-label="Toggle Theme"
-              style="background:none; border:none; font-size:1.2rem; margin-left:1rem; cursor:pointer; color: var(--text-color);">
-        ☀️
-      </button>
     </div>
-  </div>
-</nav>
+  </nav>
 
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const closeIcon = document.getElementById("closeIcon");
+    const navItems = document.getElementById("navItems");
+    const navList = document.getElementById("navList");
 
+    function handleResize() {
+      if (window.innerWidth < 992) {
+        // Mobile: hide nav, show hamburger
+        navItems.style.display = "none";
+        navList.style.flexDirection = "column";
+        navList.style.gap = "1rem";
+        navList.style.textAlign = "center";
+        hamburger.style.display = "inline-block";
+        closeIcon.style.display = "none";
+      } else {
+        // Desktop: show nav inline
+        navItems.style.display = "block";
+        navList.style.flexDirection = "row";
+        navList.style.gap = "1rem";
+        hamburger.style.display = "none";
+        closeIcon.style.display = "none";
+        navItems.style.position = "static";
+        navItems.style.width = "auto";
+        navItems.style.background = "transparent";
+      }
+    }
 
+    hamburger.addEventListener("click", () => {
+      navItems.style.display = "block";
+      navItems.style.position = "absolute";
+      navItems.style.top = "60px";
+      navItems.style.left = "0";
+      navItems.style.width = "100%";
+      navItems.style.background = "#121212";
+      hamburger.style.display = "none";
+      closeIcon.style.display = "inline-block";
+    });
 
-   <!-- Hero Section (Background Only) -->
+    closeIcon.addEventListener("click", () => {
+      navItems.style.display = "none";
+      closeIcon.style.display = "none";
+      hamburger.style.display = "inline-block";
+    });
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("load", handleResize);
+  </script>
+
+  <!-- Hero Section -->
   <header class="hero">
     <div class="hero-content">
       <h1>Hi, I’m Abhinav.</h1>
       <h2><span id="typed-text"></span><span class="cursor">|</span></h2>
-      <br>
-      <br>
-  
-
-
-
+      <br><br>
       <button class="btn" data-target="#projects">Explore My Work</button>
       <div class="scroll-indicator">↓</div>
     </div>
   </header>
 
- <!-- Floating “Contact Me” Bubble -->
-<a
-  href="contact.html"
-  style="
-    position: fixed;
-    right: 20px;
-    bottom: 30%;
-    width: 60px;
-    height: 60px;
-    background: #d4af37;
-    color: #000;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    z-index: 1000;
-    transition: transform 0.3s;
-  "
-  onmouseover="this.style.transform='scale(1.1)';"
-  onmouseout="this.style.transform='scale(1)';"
-  aria-label="Contact Me"
->
-  💬
-</a>
-
-
+  <!-- Floating “Contact Me” Bubble -->
+  <a href="contact.html" style="position: fixed; right: 20px; bottom: 30%; width: 60px; height: 60px; background: #d4af37; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 1000; transition: transform 0.3s;"
+     onmouseover="this.style.transform='scale(1.1)';"
+     onmouseout="this.style.transform='scale(1)';"
+     aria-label="Contact Me">💬</a>
 
   <!-- About Section -->
   <section id="about" class="about">
     <div class="about-container">
-            <img src="assets/profile.jpg" alt="Profile" class="profile-img" />
-
+      <img src="assets/profile.jpg" alt="Profile" class="profile-img" />
       <div class="about-text">
         <p>Hello! I'm a PGDM student at Great Lakes Institute of Management with a background in Electrical Engineering. I build data-driven solutions in finance, analytics, and sustainability.</p>
         <ul class="stats">
@@ -112,59 +135,48 @@
   <!-- Projects Section -->
   <section id="projects" class="projects">
     <h2>Projects Showcase</h2>
-    <br>
-    <br>
     <div class="projects-grid">
       <div class="project-card">
-        <img src="assets/kaggle_1.png" alt="Project 1" />
+        <img src="assets/kaggle_1.png" alt="Kaggle Housing Price Project" />
         <div class="card-info">
-          <h3>Kaggle Housing price project</h3>
-          <p>Python, RF, Lr and visualizations</p>
-          <a href="https://www.kaggle.com/code/abhinavkuntal012/housing-price-p1" class="card-btn">Kaggle Notebook</a>
+          <h3>Kaggle Housing Price Project</h3>
+          <p>Python, Random Forest, Linear Regression and visualizations</p>
+          <a href="https://www.kaggle.com/code/abhinavkuntal012/housing-price-p1" class="card-btn">View on Kaggle</a>
         </div>
       </div>
       <div class="project-card">
-      
+        <img src="assets/kaggle_2.png" alt="Microloan Credit Risk Model" />
         <div class="card-info">
-                  <img src="assets/kaggle_2.png" alt="Project 3" />
-
-          <h3>Mircoloan Credit risk model</h3>
-          <p>Python, logistic regression, SHAP explainability</p>
-          <a href="projects/project3.html" class="card-btn">Kaggle link</a>
+          <h3>Microloan Credit Risk Model</h3>
+          <p>Python, Logistic Regression, SHAP explainability</p>
+          <a href="projects/project3.html" class="card-btn">View Project</a>
         </div>
       </div>
-    </div>
-     <div class="card-info">
-               <img src="assets/projectfin.jpg" alt="Project 3" />
-
-          <h3> Regulatory Compliance Audit of a Digital Lending Portfolio
-</h3>
-          <p>Python</p>
-          <a href="https://github.com/ab637/Fintech_regulatory_ex.git" class="card-btn">Github link</a>
+      <div class="project-card">
+        <img src="assets/projectfin.jpg" alt="Regulatory Compliance Audit" />
+        <div class="card-info">
+          <h3>Regulatory Compliance Audit of Digital Lending Portfolio</h3>
+          <p>Python-based regulatory compliance analysis</p>
+          <a href="https://github.com/ab637/Fintech_regulatory_ex.git" class="card-btn">View on GitHub</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- AI Chatbot Section -->
-<section id="chatbot" class="chatbot-section" style="padding: 3rem 1rem; background-color: #f8f9fa;">
-  <div class="container text-center">
-    <h2 style="color: #000; margin-bottom: 1.5rem;">💬 Talk to My AI Agent</h2>
-    <p style="max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; color: #555;">
-      Ask me about my projects, skills, and experience. This AI agent is trained to guide you through my portfolio and answer your questions.
-    </p>
-    <div style="max-width: 100%; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 10px;">
-      <iframe
-        src="https://flyingarrow-12-personal-agent.hf.space"
-        frameborder="0"
-        style="width: 100%; height: 600px; border: none;"
-        allow="microphone"
-      ></iframe>
+  <section id="chatbot" class="chatbot-section" style="padding: 3rem 1rem; background-color: #f8f9fa;">
+    <div class="container text-center">
+      <h2 style="color: #000; margin-bottom: 1.5rem;">💬 Talk to My AI Agent</h2>
+      <p style="max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; color: #555;">
+        Ask me about my projects, skills, and experience. This AI agent is trained to guide you through my portfolio and answer your questions.
+      </p>
+      <div class="chatbot-container" style="max-width: 100%; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 10px;">
+        <iframe src="https://flyingarrow-12-personal-agent.hf.space" frameborder="0" class="chatbot-iframe" style="width: 100%; height: 600px; border: none;" allow="microphone"></iframe>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
+  <!-- Skills Section -->
   <section id="skills" class="skills">
     <h2>Skills & Tools</h2>
     <div class="skills-grid">
@@ -177,8 +189,7 @@
     </div>
   </section>
 
-
-  <!-- Timeline / Resume Section -->
+  <!-- Resume Section -->
   <section id="resume" class="resume">
     <h2>Journey & Resume</h2>
     <ul class="timeline">
@@ -188,16 +199,13 @@
     </ul>
     <a href="assets/Abhinav_Kuntal_Resume.pdf" class="btn">Download Resume</a>
   </section>
-<button id="to-top">↑</button>
+
+  <button id="to-top">↑</button>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="script.js"></script>
-    <!-- at the end of body, before your script.js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  
-</body>
-
 </body>
 </html>

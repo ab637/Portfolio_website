@@ -1,144 +1,438 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abhinav Kuntal | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Abhinav Kuntal | Portfolio</title>
+
+  <!-- Bootstrap CSS (only CSS, no JS) -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
 </head>
+
 <body>
-  <div id="progress-container">
-    <div id="progress-bar"></div>
-  </div>
 
-  <nav class="navbar fixed-top">
-    <a class="navbar-brand" href="https://www.linkedin.com/in/abhinav-kuntal-611432177/">
-      Abhinav Kuntal
-    </a>
+  <!-- Scroll Progress Bar -->
 
-    <button id="hamburger" aria-label="Open Menu">☰</button>
+  <div id="progress-container">
 
-    <button id="closeIcon" aria-label="Close Menu">✖</button>
+    <div id="progress-bar"></div>
 
-    <div id="navItems">
-      <ul id="navList">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li>
-          <button id="theme-toggle" aria-label="Toggle Theme">☀</button>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  </div>
 
-  <header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Hi, I’m Abhinav Kuntal.</h1>
-      <h2><span id="typed-text"></span><span class="cursor">|</span></h2>
-      <br><br>
-      <button class="btn" data-target="#projects">Explore My Work</button>
-      <div class="scroll-indicator">↓</div>
-    </div>
-  </header>
 
-  <a href="contact.html" class="contact-bubble" aria-label="Contact Me">💬</a>
 
-  <section id="about" class="about">
-    <div class="about-container">
-      <img src="assets/profile.jpg" alt="Profile" class="profile-img" />
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>Hello! I'm a PGDM student at Great Lakes Institute of Management with a background in Electrical Engineering. I build data-driven solutions in finance, analytics, and sustainability.</p>
-        <ul class="stats">
-          <li>10+ Projects</li>
-          <li>6 Tools Mastered</li>
-          <li>3 Internships</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <!-- Navbar -->
 
-  <section id="projects" class="projects">
-    <h2>Projects Showcase</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <img src="assets/kaggle_1.png" alt="Kaggle Housing Price Project" />
-        <div class="card-info">
-          <h3>Kaggle Housing Price Project</h3>
-          <p>Python, Random Forest, Linear Regression and visualizations</p>
-          <a href="https://www.kaggle.com/code/abhinavkuntal012/housing-price-p1" class="card-btn">View on Kaggle</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="assets/kaggle_2.png" alt="Microloan Credit Risk Model" />
-        <div class="card-info">
-          <h3>Microloan Credit Risk Model</h3>
-          <p>Python, Logistic Regression, SHAP explainability</p>
-          <a href="projects/project3.html" class="card-btn">View Project</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="assets/projectfin.jpg" alt="Regulatory Compliance Audit" />
-        <div class="card-info">
-          <h3>Regulatory Compliance Audit</h3>
-          <p>Python-based regulatory compliance analysis of a Digital Lending Portfolio.</p>
-          <a href="https://github.com/ab637/Fintech_regulatory_ex.git" class="card-btn">View on GitHub</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="assets/Screenshot 2025-08-31 213352.png" alt="RAG Based AI chatbot" />
-        <div class="card-info">
-          <h3>RBI LEGAL COUNCILLOR CHATBOT</h3>
-          <p>RAG Based chatbot powered by OPENAI API</p>
-          <a href="https://huggingface.co/spaces/Flyingarrow-12/rbi" class="card-btn">View on Hugging Face</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <nav class="navbar fixed-top" style="background: #121212; padding: 0.5rem 1rem; width: 100%; display: flex; align-items: center; justify-content: space-between; z-index:1000;">
 
-  <section id="chatbot" class="chatbot-section">
-    <div class="container text-center">
-      <h2>💬 Talk to My AI Agent</h2>
-      <p>
-        Ask me about my projects, skills, and experience. This AI agent is trained to guide you through my portfolio and answer your questions.
-      </p>
-      <div class="chatbot-container">
-        <iframe src="https://flyingarrow-12-personal-agent.hf.space" frameborder="0" class="chatbot-iframe" allow="microphone"></iframe>
-      </div>
-    </div>
-  </section>
+    
 
-  <section id="skills" class="skills">
-    <h2>Skills & Tools</h2>
-    <div class="skills-grid">
-      <div class="skill-item">Power BI</div>
-      <div class="skill-item">Tableau</div>
-      <div class="skill-item">Excel</div>
-      <div class="skill-item">Python</div>
-      <div class="skill-item">Machine Learning</div>
-      <div class="skill-item">Consulting Models</div>
-    </div>
-  </section>
+    <!-- Brand -->
 
-  <section id="resume" class="resume">
-    <h2>Journey & Resume</h2>
-    <ul class="timeline">
-      <li><span class="timeline-date">2024</span> Completed B.Tech in Electrical Engineering from BIET, Jhansi</li>
-      <li><span class="timeline-date">2024–Present</span> PGDM at Great Lakes Institute of Management</li>
-      <li><span class="timeline-date">2025</span> Intern at Bajaj Finance</li>
-    </ul>
-    <a href="assets/Abhinav_Kuntal_Resume.pdf" class="btn">Download Resume</a>
-  </section>
+    <a class="navbar-brand" href="https://www.linkedin.com/in/abhinav-kuntal-611432177/"
 
-  <button id="to-top" aria-label="Go to top">↑</button>
+       style="color: gold; font-weight: bold; font-size: 1.25rem; text-decoration: none;">
 
-  <script src="script.js"></script>
+      Abhinav Kuntal
+
+    </a>
+
+
+
+    <!-- Hamburger Icon (mobile only) -->
+
+    <button id="hamburger" style="font-size: 1.8rem; background: none; border: none; color: gold; cursor: pointer; display: none;">
+
+      ☰
+
+    </button>
+
+
+
+    <!-- Close Icon (mobile only) -->
+
+    <button id="closeIcon" style="font-size: 1.8rem; background: none; border: none; color: gold; cursor: pointer; display: none;">
+
+      ✖
+
+    </button>
+
+
+
+    <!-- Navbar Items -->
+
+    <div id="navItems" style="margin-left: auto;">
+
+      <ul id="navList" style="list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; align-items: center;">
+
+        <li><a href="#about" style="color: white; text-decoration: none;">About</a></li>
+
+        <li><a href="#projects" style="color: white; text-decoration: none;">Projects</a></li>
+
+        <li><a href="#skills" style="color: white; text-decoration: none;">Skills</a></li>
+
+        <li><a href="#resume" style="color: white; text-decoration: none;">Resume</a></li>
+
+        <li><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
+
+        <li>
+
+          <button id="theme-toggle" aria-label="Toggle Theme"
+
+                  style="background: none; border: none; font-size: 1.2rem; color: white; cursor: pointer;">
+
+            ☀
+
+          </button>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+
+  <script>
+
+    const hamburger = document.getElementById("hamburger");
+
+    const closeIcon = document.getElementById("closeIcon");
+
+    const navItems = document.getElementById("navItems");
+
+    const navList = document.getElementById("navList");
+
+
+
+    function handleResize() {
+
+      if (window.innerWidth < 992) {
+
+        // Mobile: hide nav, show hamburger
+
+        navItems.style.display = "none";
+
+        navList.style.flexDirection = "column";
+
+        navList.style.gap = "1rem";
+
+        navList.style.textAlign = "center";
+
+        hamburger.style.display = "inline-block";
+
+        closeIcon.style.display = "none";
+
+      } else {
+
+        // Desktop: show nav inline
+
+        navItems.style.display = "block";
+
+        navList.style.flexDirection = "row";
+
+        navList.style.gap = "1rem";
+
+        hamburger.style.display = "none";
+
+        closeIcon.style.display = "none";
+
+        navItems.style.position = "static";
+
+        navItems.style.width = "auto";
+
+        navItems.style.background = "transparent";
+
+      }
+
+    }
+
+
+
+    hamburger.addEventListener("click", () => {
+
+      navItems.style.display = "block";
+
+      navItems.style.position = "absolute";
+
+      navItems.style.top = "60px";
+
+      navItems.style.left = "0";
+
+      navItems.style.width = "100%";
+
+      navItems.style.background = "#121212";
+
+      hamburger.style.display = "none";
+
+      closeIcon.style.display = "inline-block";
+
+    });
+
+
+
+    closeIcon.addEventListener("click", () => {
+
+      navItems.style.display = "none";
+
+      closeIcon.style.display = "none";
+
+      hamburger.style.display = "inline-block";
+
+    });
+
+
+
+    window.addEventListener("resize", handleResize);
+
+    window.addEventListener("load", handleResize);
+
+  </script>
+
+
+
+  <!-- Hero Section -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <h1>Hi, I’m Abhinav Kuntal..</h1>
+
+      <h2><span id="typed-text"></span><span class="cursor">|</span></h2>
+
+      <br><br>
+
+      <button class="btn" data-target="#projects">Explore My Work</button>
+
+      <div class="scroll-indicator">↓</div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- Floating “Contact Me” Bubble -->
+
+  <a href="contact.html" style="position: fixed; right: 20px; bottom: 30%; width: 60px; height: 60px; background: #d4af37; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 1000; transition: transform 0.3s;"
+
+     onmouseover="this.style.transform='scale(1.1)';"
+
+     onmouseout="this.style.transform='scale(1)';"
+
+     aria-label="Contact Me">💬</a>
+
+
+
+  <!-- About Section -->
+
+  <section id="about" class="about">
+
+    <div class="about-container">
+
+      <img src="assets/profile.jpg" alt="Profile" class="profile-img" />
+
+      <div class="about-text">
+
+        <p>Hello! I'm a PGDM student at Great Lakes Institute of Management with a background in Electrical Engineering. I build data-driven solutions in finance, analytics, and sustainability.</p>
+
+        <ul class="stats">
+
+          <li>10+ Projects</li>
+
+          <li>6 Tools Mastered</li>
+
+          <li>3 Internships</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Projects Section -->
+
+  <section id="projects" class="projects">
+
+    <h2>Projects Showcase</h2>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+
+        <img src="assets/kaggle_1.png" alt="Kaggle Housing Price Project" />
+
+        <div class="card-info">
+
+          <h3>Kaggle Housing Price Project</h3>
+
+          <p>Python, Random Forest, Linear Regression and visualizations</p>
+
+          <a href="https://www.kaggle.com/code/abhinavkuntal012/housing-price-p1" class="card-btn">View on Kaggle</a>
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="assets/kaggle_2.png" alt="Microloan Credit Risk Model" />
+
+        <div class="card-info">
+
+          <h3>Microloan Credit Risk Model</h3>
+
+          <p>Python, Logistic Regression, SHAP explainability</p>
+
+          <a href="projects/project3.html" class="card-btn">View Project</a>
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="assets/projectfin.jpg" alt="Regulatory Compliance Audit" />
+
+        <div class="card-info">
+
+          <h3>Regulatory Compliance Audit of Digital Lending Portfolio</h3>
+
+          <p>Python-based regulatory compliance analysis</p>
+
+          <a href="https://github.com/ab637/Fintech_regulatory_ex.git" class="card-btn">View on GitHub</a>
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="assets/Screenshot 2025-08-31 213352.png" alt="RAG Based AI chatbot" />
+
+        <div class="card-info">
+
+          <h3>RBI LEGAL COUNCILLOR CHATBOT</h3>
+
+          <p>RAG Based chatbot powered by OPENAI API</p>
+
+          <a href="https://huggingface.co/spaces/Flyingarrow-12/rbi" class="card-btn">View on Hugging Face</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- AI Chatbot Section -->
+
+  <section id="chatbot" class="chatbot-section" style="padding: 3rem 1rem; background-color: #f8f9fa;">
+
+    <div class="container text-center">
+
+      <h2 style="color: #000; margin-bottom: 1.5rem;">💬 Talk to My AI Agent</h2>
+
+      <p style="max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; color: #555;">
+
+        Ask me about my projects, skills, and experience. This AI agent is trained to guide you through my portfolio and answer your questions.
+
+      </p>
+
+      <div class="chatbot-container" style="max-width: 100%; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 10px;">
+
+        <iframe src="https://flyingarrow-12-personal-agent.hf.space" frameborder="0" class="chatbot-iframe" style="width: 100%; height: 600px; border: none;" allow="microphone"></iframe>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Skills Section -->
+
+  <section id="skills" class="skills">
+
+    <h2>Skills & Tools</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-item">Power BI</div>
+
+      <div class="skill-item">Tableau</div>
+
+      <div class="skill-item">Excel</div>
+
+      <div class="skill-item">Python</div>
+
+      <div class="skill-item">Machine Learning</div>
+
+      <div class="skill-item">Consulting Models</div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Resume Section -->
+
+  <section id="resume" class="resume">
+
+    <h2>Journey & Resume</h2>
+
+    <ul class="timeline">
+
+      <li><span class="timeline-date">2024</span> Completed B.Tech in Electrical Engineering from BIET, Jhansi</li>
+
+      <li><span class="timeline-date">2024–Present</span> PGDM at Great Lakes Institute of Management</li>
+
+      <li><span class="timeline-date">2025</span> Intern at Bajaj Finance</li>
+
+    </ul>
+
+    <a href="assets/Abhinav_Kuntal_Resume.pdf" class="btn">Download Resume</a>
+
+  </section>
+
+
+
+  <button id="to-top">↑</button>
+
+
+
+  <!-- Scripts -->
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+  <script src="script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 </body>
+
 </html>
+

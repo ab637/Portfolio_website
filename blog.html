@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8BCMNE23K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C8BCMNE23K');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Abhinav Kuntal</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== CSS Variables (Mirrored from Portfolio) ===== */
+    :root {
+      --gold: #FFD700;
+      --bg-color: #101018;
+      --text-color: #f0f0f0;
+      --text-secondary: #a0a0a0;
+      --glass-bg: rgba(22, 22, 34, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --shadow: rgba(0, 0, 0, 0.3);
+      --radius: 12px;
+      --transition-speed: 0.3s;
+    }
+
+    body.light-theme {
+      --bg-color: #f5f5f7;
+      --text-color: #101018;
+      --text-secondary: #555555;
+      --glass-bg: rgba(255, 255, 255, 0.6);
+      --glass-border: rgba(0, 0, 0, 0.1);
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===== Base Styles ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      transition: background var(--transition-speed), color var(--transition-speed);
+      line-height: 1.6;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      position: fixed;
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .navbar-brand {
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    #navItems ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    #navItems a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 400;
+      position: relative;
+      transition: color var(--transition-speed);
+    }
+
+    #navItems a:hover { color: var(--gold); }
+
+    #navItems a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--gold);
+      transition: width var(--transition-speed);
+    }
+
+    #navItems a:hover::after { width: 100%; }
+
+    #hamburger, #closeIcon {
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: var(--gold);
+      cursor: pointer;
+      display: none;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+
+    /* ===== Blog Hero ===== */
+    .blog-hero {
+      padding: 10rem 2rem 5rem;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(16, 16, 24, 0.85), var(--bg-color)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=1470') center/cover;
+      background-attachment: fixed;
+    }
+
+    .blog-hero h1 {
+      font-size: 3.5rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .blog-hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+
+    /* ===== Filter Container (Simplified) ===== */
+    .filter-container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.8rem;
+      border-radius: 25px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-color);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold);
+      color: #101018;
+      border-color: var(--gold);
+    }
+
+    /* ===== Blog Grid ===== */
+    .blog-section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto 5rem;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+    }
+
+    .blog-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .blog-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 1.8rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-meta {
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    .blog-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+      line-height: 1.3;
+    }
+
+    .blog-excerpt {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .read-more {
+      margin-top: auto;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .read-more:hover {
+      gap: 1rem;
+      text-decoration: underline;
+    }
+
+    /* ===== Utilities ===== */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      z-index: 10001;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--gold);
+    }
+
+    #to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--gold);
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      font-size: 1.2rem;
+      z-index: 999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 992px) {
+      #navItems {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-color);
+        z-index: 1000;
+      }
+      #navList {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        gap: 2.5rem;
+      }
+      #hamburger { display: block; }
+      .blog-hero h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <nav class="navbar">
+    <a class="navbar-brand" href="index.html">Abhinav Kuntal</a>
+    <button id="hamburger" aria-label="Open Menu">☰</button>
+    <button id="closeIcon" aria-label="Close Menu">✖</button>
+    <div id="navItems">
+      <ul id="navList">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="blog.html" style="color: var(--gold)">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button id="theme-toggle">☀</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="blog-hero">
+    <h1>My Blog</h1>
+    <p>A collection of personal thoughts, professional updates, and reflections on my journey. Welcome to my digital workspace.</p>
+  </header>
+
+  <div class="filter-container">
+    <button class="filter-btn active">All Posts</button>
+    <button class="filter-btn">General</button>
+    <button class="filter-btn">Reflections</button>
+    <button class="filter-btn">Updates</button>
+  </div>
+
+  <section class="blog-section">
+    <div class="blog-grid">
+      <!-- Blog Post 1 -->
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&q=80&w=800" alt="New Journey" class="blog-img">
+        <div class="blog-content">
+          <span class="blog-meta">March 2025 • Updates</span>
+          <h3 class="blog-title">Welcome to My New Digital Space</h3>
+          <p class="blog-excerpt">Today marks the official launch of my personal blog. I'll be using this space to share what I'm learning, building, and thinking about as I navigate my professional career.</p>
+          <a href="#" class="read-more">Read Full Story →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 2 -->
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Continuous Learning" class="blog-img">
+        <div class="blog-content">
+          <span class="blog-meta">February 2025 • Reflections</span>
+          <h3 class="blog-title">The Art of Continuous Learning</h3>
+          <p class="blog-excerpt">In an ever-changing landscape, the ability to learn and adapt is the most valuable skill one can possess. Here are my thoughts on staying curious in 2025.</p>
+          <a href="#" class="read-more">Read Full Story →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 3 -->
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1504384308090-c89e12bf9a51?auto=format&fit=crop&q=80&w=800" alt="Productivity" class="blog-img">
+        <div class="blog-content">
+          <span class="blog-meta">January 2025 • General</span>
+          <h3 class="blog-title">Building a Better Daily Routine</h3>
+          <p class="blog-excerpt">Small habits lead to big results. Exploring the simple changes I've made to my morning routine to stay focused and productive throughout the work day.</p>
+          <a href="#" class="read-more">Read Full Story →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <button id="to-top">↑</button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Logic Synced with Portfolio
+      const hamburger = document.getElementById("hamburger");
+      const closeIcon = document.getElementById("closeIcon");
+      const navItems = document.getElementById("navItems");
+      const toggleBtn = document.getElementById('theme-toggle');
+      const body = document.body;
+
+      function handleResize() {
+        if (window.innerWidth > 992) {
+          navItems.style.display = "block";
+          hamburger.style.display = "none";
+          closeIcon.style.display = "none";
+        } else {
+          navItems.style.display = "none";
+          hamburger.style.display = "inline-block";
+          closeIcon.style.display = "none";
+        }
+      }
+
+      hamburger.addEventListener("click", () => {
+        navItems.style.display = "block";
+        hamburger.style.display = "none";
+        closeIcon.style.display = "inline-block";
+      });
+
+      closeIcon.addEventListener("click", () => {
+        navItems.style.display = "none";
+        hamburger.style.display = "inline-block";
+        closeIcon.style.display = "none";
+      });
+
+      window.addEventListener("resize", handleResize);
+      handleResize();
+
+      // Theme Sync
+      function setTheme(theme) {
+        if (theme === 'light') {
+          body.classList.add('light-theme');
+          toggleBtn.textContent = '🌙';
+          localStorage.setItem('theme', 'light');
+        } else {
+          body.classList.remove('light-theme');
+          toggleBtn.textContent = '☀️';
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      setTheme(savedTheme);
+
+      toggleBtn.addEventListener('click', () => {
+        setTheme(body.classList.contains('light-theme') ? 'dark' : 'light');
+      });
+
+      // Scroll Tracking
+      const progressBar = document.getElementById('progress-bar');
+      const toTopBtn = document.getElementById('to-top');
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (scrollTop / docHeight) * 100 + '%';
+        toTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+      });
+
+      toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      // Simplified Filtering
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
